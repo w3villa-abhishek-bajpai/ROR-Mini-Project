@@ -1,0 +1,15 @@
+<p class="alert alert-info"><%= notice %></p>
+
+<div class="container mt-5 p-4 border rounded shadow bg-white">
+  <h1 class="mb-4 text-center text-primary">Student Details</h1>
+
+  <p><strong>Student ID:</strong> <%= @student.id %></p>
+  <p><strong>First Name:</strong> <%= @student.first_name %></p>
+  <p><strong>Last Name:</strong> <%= @student.last_name %></p>
+  <p><strong>Email:</strong> <%= @student.email %></p>
+
+  <div class="mt-4 d-flex justify-content-between">
+    <%= link_to 'Back', students_path, class: "btn btn-secondary" %>
+    <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-warning" %>
+  </div>
+</div>

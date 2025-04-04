@@ -1,0 +1,32 @@
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+  <div class="card shadow p-4" style="width: 100%; max-width: 600px;">
+    <%= form_with(model: project, html: { class: "w-100" }) do |form| %>
+      
+      <% if project.errors.any? %>
+        <div class="alert alert-danger">
+          <h4><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h4>
+          <ul>
+            <% project.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label fw-bold text-primary" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :description, class: "form-label fw-bold text-primary" %>
+        <%= form.text_area :description, class: "form-control", rows: 4 %>
+      </div>
+
+      <div class="text-center">
+        <%= form.submit "Save Project", class: "btn btn-success px-4 py-2" %>
+      </div>
+      
+    <% end %>
+  </div>
+</div>

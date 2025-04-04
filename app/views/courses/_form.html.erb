@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center align-items-center min-vh-100 bg-light">
+  <div class="card shadow-lg p-4" style="width: 100%; max-width: 500px;">
+    <h3 class="text-center text-primary mb-4">Add / Edit Course</h3>
+
+    <%= form_with(model: course, html: { class: "needs-validation" }) do |form| %>
+      <% if course.errors.any? %>
+        <div class="alert alert-danger">
+          <h5><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h5>
+          <ul class="mb-0">
+            <% course.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="mb-3">
+        <%= form.label :name, class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :name, class: "form-control", placeholder: "Enter course name" %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :description, class: "form-label fw-semibold text-dark" %>
+        <%= form.text_field :description, class: "form-control", placeholder: "Enter course description" %>
+      </div>
+
+      <div class="d-grid">
+        <%= form.submit "Save Course", class: "btn btn-gradient btn-lg" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<style>
+  .btn-gradient {
+    background: linear-gradient(to right, #007bff, #6610f2);
+    color: white;
+    border: none;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #6610f2, #007bff);
+    transform: scale(1.03);
+  }
+</style>
