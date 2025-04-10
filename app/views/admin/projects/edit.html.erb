@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <h2 class="mb-4 text-center text-primary">Edit Project</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <%= render "form", project: @project %>
+
+      <div class="mt-4 d-flex justify-content-between">
+        <%= link_to "Show this project", @project, class: "btn btn-outline-primary" %>
+        <%= link_to "Back to projects", projects_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-center align-items-center min-vh-100">
-<%= form_with model: student, html: { class: "container mt-4 p-4 border rounded shadow bg-white" } do |form| %>
+<%= form_with model: @student, html: { class: "container mt-4 p-4 border rounded shadow bg-white" } do |form| %>
 
   <% if @student.errors.any? %>
     <div class="alert alert-danger">
@@ -53,10 +53,11 @@
     </div>
 
     <div class="col-md-6 mb-3">
-      <%= form.label :alternate_contact_number, class: "form-label fw-bold text-primary" %>
-      <%= form.text_field :alternate_contact_number, class: "form-control input-hover" %>
+      <%= form.label :alernate_contact_number, class: "form-label fw-bold text-primary" %>
+      <%= form.text_field :alernate_contact_number, class: "form-control input-hover" %>
     </div>
   </div>
+
 
   <div class="text-center">
     <%= form.submit "Submit", class: "btn btn-gradient btn-lg px-4 py-2" %>

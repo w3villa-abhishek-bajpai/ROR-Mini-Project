@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :admin_users
   resources :projects
   resources :courses
+  resources :students
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -9,8 +12,15 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :students
+ 
+  resources :blogs
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  namespace :admin do
+    resources :students
+    resources :projects
+    resources :courses
+    resources :blogs
+  end
+
+
 end

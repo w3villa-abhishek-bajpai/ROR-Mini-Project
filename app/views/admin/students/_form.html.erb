@@ -1,0 +1,110 @@
+# <div class="d-flex justify-content-center align-items-center min-vh-100">
+# <%= form_with model: student, html: { class: "container mt-4 p-4 border rounded shadow bg-white" } do |form| %>
+
+#   <% if @student.errors.any? %>
+#     <div class="alert alert-danger">
+#       <h4 class="alert-heading">Errors:</h4>
+#       <ul>
+#         <% @student.errors.full_messages.each do |message| %>
+#           <li><%= message %></li>
+#         <% end %>
+#       </ul>
+#     </div>
+#   <% end %>
+
+#   <div class="row">
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :first_name, class: "form-label fw-bold text-primary" %>
+#       <%= form.text_field :first_name, class: "form-control input-hover" %>
+#     </div>
+
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :last_name, class: "form-label fw-bold text-primary" %>
+#       <%= form.text_field :last_name, class: "form-control input-hover" %>
+#     </div>
+#   </div>
+
+#   <div class="row">
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :email, class: "form-label fw-bold text-primary" %>
+#       <%= form.email_field :email, class: "form-control input-hover" %>
+#     </div>
+
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :date_of_birth, class: "form-label fw-bold text-primary" %>
+#       <%= form.date_field :date_of_birth, class: "form-control input-hover" %>
+#     </div>
+#   </div>
+
+#   <div class="mb-3">
+#     <%= form.label :local_address, class: "form-label fw-bold text-primary" %>
+#     <%= form.text_field :local_address, class: "form-control input-hover" %>
+#   </div>
+
+#   <div class="mb-3">
+#     <%= form.label :permanent_address, class: "form-label fw-bold text-primary" %>
+#     <%= form.text_field :permanent_address, class: "form-control input-hover" %>
+#   </div>
+
+#   <div class="row">
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :permanent_contact_number, class: "form-label fw-bold text-primary" %>
+#       <%= form.text_field :permanent_contact_number, class: "form-control input-hover" %>
+#     </div>
+
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :alernate_contact_number, class: "form-label fw-bold text-primary" %>
+#       <%= form.text_field :alernate_contact_number, class: "form-control input-hover" %>
+#     </div>
+#   </div>
+
+#   <div class="row">
+#     <div class="col-md-6 mb-3">
+#       <%= form.label :date_of_birth, class: "form-label fw-bold text-primary" %>
+#       <%= form.date_field :date_of_birth, class: "form-control input-hover" %>
+#     </div>
+
+#   <div class="text-center">
+#     <%= form.submit "Submit", class: "btn btn-gradient btn-lg px-4 py-2" %>
+#   </div>
+
+# <% end %>
+
+# <style>
+
+#   .container {
+#     background-color: #f8f9fa; /* Light background */
+#     max-width: 600px;
+#   }
+
+#   .input-hover {
+#     border: 2px solid #ced4da;
+#     transition: all 0.3s ease-in-out;
+#   }
+
+#   .input-hover:hover {
+#     border-color: #007bff;
+#     box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+#   }
+
+#   .input-hover:focus {
+#     border-color: #0056b3;
+#     box-shadow: 0px 0px 10px rgba(0, 86, 179, 0.4);
+#   }
+
+
+#   .btn-gradient {
+#     background: linear-gradient(to right, #007bff, #6610f2);
+#     color: white;
+#     border: none;
+#     transition: transform 0.2s ease-in-out, background 0.3s ease-in-out;
+#   }
+
+#   .btn-gradient:hover {
+#     background: linear-gradient(to right, #6610f2, #007bff);
+#     transform: scale(1.05);
+#   }
+# </style>
+
+# </div>
+
