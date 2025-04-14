@@ -1,0 +1,15 @@
+<h2>Enter OTP</h2>
+
+<%= form_with url: admin_otp_verification_path, method: :post do %>
+  <div>
+    <%= label_tag :otp, "OTP" %>
+    <%= text_field_tag :otp %>
+  </div>
+
+  <%= submit_tag "Verify OTP" %>
+<% end %>
+
+
+
+
+

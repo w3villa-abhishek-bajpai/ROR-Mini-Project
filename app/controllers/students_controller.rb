@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+    before_action :authenticate_admin_user!
 
     helper_method :formatted_date
     def index
@@ -38,12 +39,14 @@ class StudentsController < ApplicationController
         end
     end
 
-     def destroy
+    def destroy
         @student = Student.find(params[:id])
+        @student.courses.clear
         CrudNotificationMailer.delete_notification(@student, Student).deliver_now
         @student.destroy
-        redirect_to students_path, notice: "Student was successfully deleted."
+        redirect_to admin_students_path, notice: "Student was successfully deleted."
     end
+      
     private
 
     def student_params

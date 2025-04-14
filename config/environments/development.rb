@@ -74,16 +74,16 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  # config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
 
 config.action_mailer.smtp_settings = {
   address:              'smtp.mailgun.org',
   port:                 587,
-  domain:               'sandbox65153bd504934369a954a74f164bad8d.mailgun.org', # Replace with your Mailgun sandbox domain
-  user_name:            'postmaster@sandbox65153bd504934369a954a74f164bad8d.mailgun.org',   # Your Mailgun SMTP login
-  password:             'eaa3323b1f8cca4a1e3f5b34125d693b-2b77fbb2-ca00b612', # Your Mailgun SMTP password (API key works too)
+  domain:               'sandbox65153bd504934369a954a74f164bad8d.mailgun.org', 
+  user_name:            'postmaster@sandbox65153bd504934369a954a74f164bad8d.mailgun.org',   
+  password:              'eaa3323b1f8cca4a1e3f5b34125d693b-2b77fbb2-ca00b612', 
   authentication:       'plain',
   enable_starttls_auto: true
 }

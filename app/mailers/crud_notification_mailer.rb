@@ -17,7 +17,6 @@ class CrudNotificationMailer < ApplicationMailer
   def delete_notification(object, count)
     @object = object
     @object_count = count
-    mail(to: 'abajpai2811@.gmailcom', subject: "Object for #{object.class} has been deleted")
-    
+    mail(to: 'abajpai2811@gmail.com', subject: "Object for #{object.class} has been deleted")  
   end
 end

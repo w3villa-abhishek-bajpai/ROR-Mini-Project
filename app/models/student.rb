@@ -3,7 +3,7 @@ class Student < ApplicationRecord
     #many to many association between project and student below 2 lines
     has_many :student_projects
     has_many :projects, through: :student_projects
-    has_and_belongs_to_many :courses
+    has_and_belongs_to_many :courses, dependent: :destroy
     validates :first_name, :last_name, :email, presence: true 
     validates :email, uniqueness: true
     validates :first_name, :last_name, length: { minimum: 2, maximum: 40 }

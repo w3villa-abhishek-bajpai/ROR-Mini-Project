@@ -14,6 +14,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import $ from "jquery";
 global.$ = jQuery;
 
+import "css/admin.css"
 import './plugins/jquery.easing.min.js'
 import './plugins/sb-admin-2.js'
 import './plugins/Chart.min.js'
