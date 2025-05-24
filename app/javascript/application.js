@@ -1,6 +1,7 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 // app/javascript/application.js
-
+// import { Application } from '@hotwired/stimulus';
+// import { definitionsFromContext } from '@hotwired/stimulus-loading';
 import "@hotwired/turbo-rails"
 import Rails from "@rails/ujs"
 Rails.start()
@@ -15,8 +16,8 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import $ from "jquery";
 global.$ = jQuery;
-// import Turbolinks from "turbolinks"
-// Turbolinks.start();
+import Turbolinks from "turbolinks"
+Turbolinks.start();
 
 
 

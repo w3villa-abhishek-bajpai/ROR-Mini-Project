@@ -1,49 +1,113 @@
-<div class="container min-vh-99 d-flex flex-column justify-content-center align-items-center text-center">
-  <h1 class="display-4 text-primary fw-bold mb-4">Welcome to Student Management System</h1>
+<div class="home-page max-vh-99 d-flex  flex-column">
+  <!-- kground Image -->
+  <div class="parallax-bg position-absolute  w-100 h-100"></div>
 
-  <p class="lead mb-5 text-secondary">
-    Effortlessly manage student records, view details, and maintain student information with ease.
-  </p>
+  <!-- Content -->
+  <div class="content-wrapper position-relative flex-grow-1 d-flex flex-column">
+    <!-- Hero Section -->
+    <header class="hero text-center py-5 text-white">
+      <div class="container">
+        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">
+          Student Management System
+        </h1>
+        <p class="lead mb-5 opacity-75 animate__animated animate__fadeIn animate__delay-1s">
+          Streamline student data management with intuitive controls and real-time insights
+        </p>
+      </div>
+    </header>
 
-  <div class="d-flex gap-3">
-    <%= link_to 'View Students', admin_students_path, class: "btn btn-outline-primary btn-lg px-4 py-2" %>
-    <%= link_to 'Add New Student', new_admin_student_path, class: "btn btn-primary btn-lg px-4 py-2" %>
+    <!-- Action Cards -->
+<main class="container flex-grow-1 py-4">
+  <div class="row g-4 justify-content-center">
+    <!-- Students Card -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1s">
+      <div class="card glass-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-users fa-3x text-primary mb-4"></i>
+          <h3 class="h4 mb-3 text-white">Students</h3>
+          <div class="d-grid gap-3">
+            <%= link_to admin_students_path, class: "btn btn-light btn-hover" do %>
+              <i class="fas fa-list me-2"></i>View All
+            <% end %>
+            <%= link_to new_admin_student_path, class: "btn btn-primary btn-hover" do %>
+              <i class="fas fa-plus me-2"></i>Add New
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Courses Card -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1-2s">
+      <div class="card glass-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-book-open fa-3x text-success mb-4"></i>
+          <h3 class="h4 mb-3 text-white">Courses</h3>
+          <div class="d-grid gap-3">
+            <%= link_to courses_path, class: "btn btn-light btn-hover" do %>
+              <i class="fas fa-list me-2"></i>View All
+            <% end %>
+            <%= link_to new_course_path, class: "btn btn-success btn-hover" do %>
+              <i class="fas fa-plus me-2"></i>Add New
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects Card -->
+    <div class="col-md-6 col-lg-4 animate__animated animate__fadeInUp animate__delay-1-4s">
+      <div class="card glass-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-tasks fa-3x text-warning mb-4"></i>
+          <h3 class="h4 mb-3 text-white">Projects</h3>
+          <div class="d-grid gap-3">
+            <%= link_to projects_path, class: "btn btn-light btn-hover" do %>
+              <i class="fas fa-list me-2"></i>View All
+            <% end %>
+            <%= link_to new_project_path, class: "btn btn-warning btn-hover" do %>
+              <i class="fas fa-plus me-2"></i>Add New
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="d-flex gap-3 mt-4">
-  <%= link_to 'View Courses', courses_path, class: "btn btn-outline-primary btn-lg px-4 py-2" %>
-   <%= link_to 'Add New Course', new_course_path, class: "btn btn-primary btn-lg px-4 py-2" %>
-</div>
-
-
-<div class="d-flex gap-3 mt-4">
-<%= link_to 'View Projects', projects_path, class: "btn btn-outline-primary btn-lg px-4 py-2" %>
- <%= link_to 'Add New Project', new_project_path, class: "btn btn-primary btn-lg px-4 py-2" %>
-</div>
-
-  <div class="mt-5">
-    <img src="https://cdn-icons-png.flaticon.com/512/201/201818.png" alt="Student Icon" width="120" class="mb-3">
-    <p class="text-muted">Your trusted platform for student record management</p>
+</main>
+   
   </div>
-
-
 </div>
 
 <style>
-  body {
-    background: linear-gradient(to right, e3f2fd, f8f9fa);
+  .parallax-bg {
+    background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: 0;
+
   }
 
-  .btn-primary:hover {
-    background-color: 0056b3;
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: transform 0.3s ease;
   }
 
-  .btn-outline-primary:hover {
-    background-color: 007bff;
-    color: white;
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
+  .glass-card:hover {
+    transform: translateY(-5px);
   }
+
+  .btn-hover {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-hover:hover {
+    transform: scale(1.05);
+  }
+  p.notice {
+  margin-bottom: 16px; 
+}
 </style>

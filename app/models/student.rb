@@ -1,5 +1,6 @@
 class Student < ApplicationRecord
     has_many :blogs
+    has_one_attached :profile_image
     #many to many association between project and student below 2 lines
     has_many :student_projects
     has_many :projects, through: :student_projects
@@ -9,7 +10,7 @@ class Student < ApplicationRecord
     validates :first_name, :last_name, length: { minimum: 2, maximum: 40 }
     validates :first_name, :last_name, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }    
     validates :email, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "must be a valid email address" }
-    validates :permanent_contact_number, :alernate_contact_number, format: { with: /\A\d{10}\z/, message: "must be a 10-digit number" }
+    validates :permanent_contact_number,format: { with: /\A\d{10}\z/, message: "must be a 10-digit number" }
     after_create :display_students_age
     validate :validate_students_age
 

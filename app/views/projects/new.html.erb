@@ -1,14 +1,5 @@
-<div class="container my-4 border-2 rounded shadow-lg p-20">
-  <h2 class="text-center text-primary mb-3">Create New Project</h2>
-
-    
-      <div class="card shadow-sm p-4"> 
+    <div class="container mt-5 max-vh-9">
         <%= render "form", project: @project %>
-
-        <div class="mt-3 text-center">
-          <%= link_to "← Back to Projects", projects_path, class: "btn btn-outline-secondary btn-sm" %>
-        </div>
-      </div>
+       <%= link_to "← Back to Projects", projects_path, class: "btn btn-outline-secondary btn-sm" %>
     </div>
 
-</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project: one
+  amount: 9.99
+  user_email: MyString
+  payment_status: MyString
+
+two:
+  project: two
+  amount: 9.99
+  user_email: MyString
+  payment_status: MyString

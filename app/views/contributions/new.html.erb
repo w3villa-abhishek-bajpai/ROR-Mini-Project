@@ -1,0 +1,15 @@
+<h2>Contribute to <%= @project.name %></h2>
+
+<%= form_with model: [@project, @project.contributions.new], local: true do |form| %>
+  <div>
+    <%= form.label :user_email %>
+    <%= form.email_field :user_email, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 0.01, required: true %>
+  </div>
+
+  <%= form.submit "Proceed to Pay", class: "btn btn-success" %>
+<% end %>

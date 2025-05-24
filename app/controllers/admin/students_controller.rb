@@ -1,8 +1,6 @@
 class Admin::StudentsController < ApplicationController
     include ApplicationHelper
-    before_action :authenticate_admin_user!
-    
-    before_action :set_student, only: %i[show edit update destroy]
+    before_action :authenticate_admin_user!, only: [:new, :edit, :create, :update, :destroy]
     helper_method :formatted_date
     def index
         @students = Student.all
@@ -18,7 +16,7 @@ class Admin::StudentsController < ApplicationController
           CrudNotificationMailer.create_notification(@student).deliver_now
           redirect_to admin_students_path, notice: "Student was successfully created."
         else
-          render :new, status: :unprocessable_entity # Ensure errors show up
+          render :new, status: :unprocessable_entity 
         end
       end
     
@@ -45,15 +43,15 @@ class Admin::StudentsController < ApplicationController
     def destroy
         @student = Student.find(params[:id])
         @student.courses.clear
-        CrudNotificationMailer.delete_notification(@student, Student).deliver_now
         @student.destroy
+        CrudNotificationMailer.delete_notification(@student, Student).deliver_now
         redirect_to admin_students_path, notice: "Student was successfully deleted."
     end
 
     private
 
     def student_params
-        params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :permanent_contact_number, :local_address, :permanent_address, :alernate_contact_number)  
+        params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :permanent_contact_number, :local_address, :permanent_address, :alernate_contact_number, :profile_image)  
     end
 
     def formatted_date(date)

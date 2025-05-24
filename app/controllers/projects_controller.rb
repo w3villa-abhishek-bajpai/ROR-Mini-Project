@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
+  before_action :set_project, only: %i[ show edit update destroy verify_payment ]
 
   # GET /projects or /projects.json
   def index
@@ -57,10 +57,35 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def verify_payment
+    payment_id = params[:payment_id]
+    order_id = params[:order_id]
+    signature = params[:signature]
+
+    begin
+      is_valid = Razorpay::Utility.verify_payment_signature(
+        razorpay_order_id: order_id,
+        razorpay_payment_id: payment_id,
+        razorpay_signature: signature
+      )
+
+      if is_valid
+        flash[:notice] = "Payment verified successfully!"
+      else
+        flash[:alert] = "Payment verification failed."
+      end
+    rescue Razorpay::Errors::SignatureVerificationError => e
+      flash[:alert] = "Payment verification error: #{e.message}"
+    end
+
+    redirect_to @project
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+      redirect_to projects_path, alert: "Project not found." unless @project
     end
 
     # Only allow a list of trusted parameters through.
